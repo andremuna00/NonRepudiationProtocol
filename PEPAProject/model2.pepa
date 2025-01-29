@@ -1,0 +1,24 @@
+rb = 1.0;
+rga1 = 1.0;
+rga2 = 1.0;
+rgb = 1.0;
+rp1 = 1.0;
+rp2 = 1.0;
+rt1 = 1.0;
+rt2 = 1.0; 
+rw = 0.01;
+rv = 0.01;
+AB0 = (request, rt1).AB15;
+AB15 = (verify, rv).AB1;
+AB1 = (publish1, rp1).AB2;
+AB2 = (getByA1, rga1).AB3;
+AB3 = (sendB, rb).AB4;
+AB4 = (sendTTP, rt2).AB5;
+AB5 = (publish2, rp2).AB6;
+AB6 = (getByA2, rga2).AB7 + (getByB, rgb).AB8;
+AB7 = (getByB, rgb).AB9;
+AB8 = (getByA2, rga2).AB9;
+AB9 = (work, rw).AB0;
+TTP = (verify, rv).TTP1 +(publish2, rp2).TTP + (sendB, rb).TTP;
+TTP1 = (publish1, rp1).TTP;
+TTP[3] <verify, publish1, publish2,sendB> AB0[1]

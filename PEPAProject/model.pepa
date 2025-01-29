@@ -1,0 +1,27 @@
+rb = 1.0;
+rga1 = 1.0;
+rga2 = 1.0;
+rgb = 1.0;
+rp1 = 1.0;
+rp2 = 1.0;
+rt1 = 1.0;
+rt2 = 1.0; 
+rw = 0.01;
+/*Client A*/
+A0 = (request, rt1).A1;
+A1 = (publish1, rp1).A2;
+A2 = (getByA1, rga1).A3;
+A3 = (sendB, rb).A4;
+A4 = (publish2, rp2).A5;
+A5 = (getByA2, rga2).A6;
+A6 = (work, rw).A0;
+/*Client B*/
+B0 = (sendB, rb).B1;
+B1 = (sendTTP, rt2).B2;
+B2 = (publsih2, rp2).B3;
+B3 = (getByB, rgb).B4;
+B4 = (work, rw).B0;
+/*Server TTP*/
+TTP = (publish1, rp1).TTP+(publish2, rp2).TTP+(sendB, rb).TTP;
+/*System*/
+TTP <publish1,publish2,sendB> (A0||B0)
